@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85cc1b47-e886-4c1a-92b7-c97aac64b17f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/WEC_ML.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/download_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/model_A.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/train_template.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template_Content/starter_kit/verify_submission.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/best_model.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf_matrix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/confusion matrix.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model.onnx" afterDir="false" />
+    <list default="true" id="85cc1b47-e886-4c1a-92b7-c97aac64b17f" name="Changes" comment="Final Version">
+      <change beforePath="$PROJECT_DIR$/conf_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,12 +114,25 @@
       <workItem from="1792169097983" duration="3040000" />
       <workItem from="1792172344293" duration="6556000" />
       <workItem from="1792220391359" duration="1599000" />
-      <workItem from="1792229576974" duration="3445000" />
+      <workItem from="1792229576974" duration="4050000" />
     </task>
+    <task id="LOCAL-00001" summary="Final Version">
+      <option name="closed" value="true" />
+      <created>1792234698748</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1792234698748</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Version" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/WEC_ML$main.coverage" NAME="main Coverage Results" MODIFIED="1791798162947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

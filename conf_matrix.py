@@ -39,7 +39,7 @@ with torch.no_grad():  # with is used for file handling in order to ensure that 
     for images, labels in val_loader:
         images = images.to(device) # for memory transfer b/w GPU and CPU
         outputs = model(images)    # The output from the CNN comes in unnormalized tensor format called logits
-        predics = torch.argmin(outputs, dim=1)  # now argmax will select the max of all the values in one particular dimension of the tensor and save it
+        predics = torch.argmin(outputs, dim=1)  # now argmin will select the min of all the values in one particular dimension of the tensor and save it
 
         Predicted_Img_Container.extend(predics.cpu().tolist())
         Test_Img_Container.extend(labels.tolist())
