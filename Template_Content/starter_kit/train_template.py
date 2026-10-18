@@ -9,7 +9,7 @@ import argparse
 import os
 import torch
 import torch.nn as nn
-from Template_Content.starter_kit.model_A import Material_Identifier
+from model_A import Material_Identifier
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import CosineAnnealingLR
