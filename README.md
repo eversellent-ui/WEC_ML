@@ -51,7 +51,6 @@ Each stage is Convolution → BatchNorm → ReLU → Pooling. After the last con
 | Linear (classifier.1) | 128 → 6 | 774 |
 | **Total (PyTorch, trainable)** | | **241,958** |
 
-![Parameter breakdown per layer](docs/param_breakdown.png)
 
 A conv layer has `C_out × C_in × k × k` weights, so the later layers cost far more than the early ones even with the same 3×3 kernel: both `C_in` and `C_out` grow. The last convolution alone holds about 61% of all parameters.
 
@@ -180,9 +179,3 @@ python Template_Content/starter_kit/verify_submission.py --model model.onnx --va
 ```
 
 The dataset is not in the repo and must be placed at the path above. `Model_A.py` must be importable by the training script. Results can differ slightly between runs because no random seed is set.
-
-## 12. Limitations and next steps
-
-- 100% on 240 images cannot rule out a lower hidden-test score.
-- No fixed seed and no systematic experiment log.
-- With more time: a proper ablation (with and without augmentation, dropout, weight decay), several seeds with averaged results, a check for duplicate images between train and validation, and a PyTorch-vs-ONNX output comparison.
