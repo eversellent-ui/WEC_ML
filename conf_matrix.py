@@ -57,5 +57,29 @@ plt.close()
 
 print(f"Confusion matrix saved to {output_image}")
 
+layer_names = []
+param_counts = []
+
+for name, param in model.named_parameters():
+  if param.requires_grad:
+    layer_names.append(name)
+    param_counts.append(param.numel())
+
+# 2. Set up the plot layout
+plt.figure(figsize=(10, len(layer_names) * 0.4))  # Scales height based on layer count
+plt.barh(layer_names, param_counts, color="skyblue", edgecolor="none")
+plt.xlabel("Number of Trainable Elements")
+plt.ylabel("Layer Name")
+plt.title("Parameter Breakdown Per Layer")
+plt.gca().invert_yaxis()  # Puts the first layers at the top
+plt.grid(axis="x", linestyle="--", alpha=0.7)
+
+# 3. Save the figure as a PNG file
+# bbox_inches='tight' prevents long layer names from getting cut off at the edge
+plt.savefig("Per layer Param Chart.png", dpi=300, bbox_inches="tight")
+
+# Optional: Close the plot to free up memory if running inside a loop
+plt.close()
+print("Graph successfully saved as 'Per layer Param Chart.png'!")
 
 
