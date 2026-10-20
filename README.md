@@ -61,11 +61,11 @@ Spatial size after each pooling stage: 96×96 → 48×48 → 24×24 → 12×12 �
 So The Manual Calculation gives the parameter count exactly equal to what Onxx count is i.e 241606. Here's how i got this
 In CNN's the formula for parameter calculation is Cin*Cout*k*k + Bias(No. of neurons in Output i.e. =Cout) 
 So the no. of features go this way (3->32->64->128->128 i.e. through convolutions), the kernel size is 3 
-    3*32*9 + 32
-    32*64*9 +64
-    64*128*9 +128
-    128*128*9 +128
-    128*1 + 6  [ this is the last layer where there are 128 features of 6*6 size and global average pooling is applied leading to a vector of 128 individual scalars so here kernels have no effect] and 6 is the output which is the 6 different classes. 
+    3×32×9 + 32,
+    32×64×9 + 64,
+    64×128×9 + 128,
+    128×128×9 + 128,
+    128×1 + 6  [ this is the last layer where there are 128 features of 6*6 size and global average pooling is applied leading to a vector of 128 individual scalars so here kernels have no effect] and 6 is the output which is the 6 different classes. 
 The difference is exactly 352, which equals the total number of BatchNorm channels (32 + 64 + 128 + 128). When the model is exported in eval mode, each BatchNorm is folded into the convolution before it. The convolutions have no bias of their own, so folding adds one bias per channel (+352) and removes the BatchNorm weight and bias (−704): 241,958 − 704 + 352 = 241,606.
 
 ### Why global average pooling (GAP)
