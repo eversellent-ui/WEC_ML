@@ -137,7 +137,7 @@ Epoch [15/15] Train Acc: 99.7% | Val Acc: 100.0%
 - Final exported model: 100.00% on the 240 validation images (via ONNX Runtime).
 - **Confusion matrix** (`argmax` predictions; rows are true classes, columns are predicted classes, and each cell counts the images in that pair): 40 on every diagonal cell and 0 elsewhere, so no confusions on validation.
 
-  ![Confusion matrix](docs/confusion_matrix.png)
+ The Image is part of REPO with name confusion matrix.png
 
 - **The `argmin` experiment.** Out of curiosity I also built the matrix with `argmin`, which records the class the model considers *least* likely. Its diagonal was all zeros, which I first read as proof of a perfect model. That conclusion is wrong: it only says the true class is never the model's *least* likely guess, which a much weaker model would also satisfy. The `argmax` matrix is the meaningful one.
 - Because there were no confusions on validation, there are no errors to analyze, and a larger or harder test set would be needed to see which classes the model mixes up.
