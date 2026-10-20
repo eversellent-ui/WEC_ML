@@ -58,15 +58,19 @@ Spatial size after each pooling stage: 96×96 → 48×48 → 24×24 → 12×12 �
 
 ### Why the ONNX count (241,606) differs from PyTorch (241,958)
 
+So The Manual Calculation gives the parameter count exactly equal to what Onxx count is i.e 241606. Here's how i got this
+In CNN's the formula for parameter calculation is Cin*Cout*k*k + Bias(No. of neurons in Output i.e. =Cout) 
+So the no. of features go this way (3->32->64->128->128 i.e. through convolutions), the kernel size is 3 
+    3*32*9 + 32
+    32*64*9 +64
+    64*128*9 +128
+    128*128*9 +128
+    128*1 + 6  [ this is the last layer where there are 128 features of 6*6 size and global average pooling is applied leading to a vector of 128 individual scalars so here kernels have no effect] and 6 is the output which is the 6 different classes. 
 The difference is exactly 352, which equals the total number of BatchNorm channels (32 + 64 + 128 + 128). When the model is exported in eval mode, each BatchNorm is folded into the convolution before it. The convolutions have no bias of their own, so folding adds one bias per channel (+352) and removes the BatchNorm weight and bias (−704): 241,958 − 704 + 352 = 241,606.
 
 ### Why global average pooling (GAP)
 
 GAP averages each feature map into a single number, so the final Linear layer receives 128 inputs and has 128 × 6 + 6 = 774 parameters. Without GAP, flattening the final 6×6 grids of 128 channels would give 4,608 inputs and 27,654 parameters, about 36 times more. The without-GAP size would also grow with the image: at 192×192 the final grid would be 12×12 and the layer about four times larger, while the GAP layer stays at 774. The cost is that GAP discards position information, which is acceptable here because a glass bottle is still glass wherever it sits in the photo. Source: *Network in Network*, read through d2l.ai.
-
-### BatchNorm vs softmax
-
-They are unrelated. **BatchNorm** normalizes each channel's activations inside the network, using the mean and variance of the batch, then applies a learnable scale and shift (its weight and bias). This keeps activations well-scaled and makes training more stable. **Softmax** acts only at the very end: it turns the 6 raw output scores (logits) into probabilities that sum to 1, and it is used inside the cross-entropy loss.
 
 ### ReLU
 
@@ -168,7 +172,7 @@ ALL CONSTRAINT CHECKS PASSED
 - *Network in Network*, read through d2l.ai, for global average pooling.
 - PyTorch and scikit-learn documentation.
 
-**How I used AI.** I read about the concepts first and used AI to explain the difficult ones, and to give me function signatures and syntax for things I had already understood (for example, after learning how a confusion matrix is built, I asked for the signatures to code it). I then wrote the code and read the docs for the calls involved. The matplotlib visualization code (plots, parameter chart, confusion-matrix image) was written with AI assistance. **Some explanatory paragraphs in this README (Sections 4, 5, 6, 7 and 12) were drafted by AI from my results and notes, and I then reviewed and edited them.** The architecture, experiments and results are my own work.
+**How I used AI.** I read about the concepts first and used AI to explain the difficult ones, and to give me function signatures and syntax for things I had already understood (for example, after learning how a confusion matrix is built, I asked for the signatures to code it). I then wrote the code and read the docs for the calls involved. The matplotlib visualization code (plots, parameter chart, confusion-matrix image) was written with AI assistance. The architecture, experiments and results are my own work. I Also Used AI to convert a human typed i.e. first i typed the entire Readme file then asked AI for proper formatting and language improvement.
 
 ## 11. How to reproduce
 
