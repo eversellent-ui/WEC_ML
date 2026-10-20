@@ -109,6 +109,8 @@ I did not keep a systematic log of every change, so this table is informal and i
 | 3 | Learning rate 0.002 | 56% after epoch 1 | better, still slow |
 | 4 | Learning rate 0.001 | 87% after epoch 1 | best of the three, kept for the final model |
 | 5 | Confusion matrix using `argmin` instead of `argmax` | all-zero diagonal | not valid evidence (see Section 7) |
+| 6 | Last conv widened 128 → 256 (BatchNorm and Linear resized to match) | 390,438 params (over the 350,000 limit); 100% val at epoch 15 | cannot be submitted; the last conv is the most expensive layer |
+| 7 | Last conv widened 128 → 196 (BatchNorm and Linear resized to match) | 320,838 params; 100% val at epoch 15 | no measurable gain over 128 channels (single runs, no seed, val saturated), so I kept the smaller 128-channel model and wider the model more are the chances of overfitting as dataset is small|
 
 Differences of about 1 point on a 240-image validation set are within noise.
 
