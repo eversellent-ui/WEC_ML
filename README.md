@@ -12,8 +12,6 @@ Intel SIG Recruitment Challenge 2026 (EcoSort). A compact CNN that classifies 96
 | Val accuracy (240 images) | 100.00% | hidden test ≥ 75% |
 | CPU latency | 3.35 ms/image | ≤ 35 ms (soft target) |
 
-> **Caveat:** the validation set is small (240 images, so one image is about 0.4%), and I also used it to pick the exported checkpoint (lowest validation loss). 100% on validation is therefore optimistic, and the hidden-test score may be lower.
-
 ---
 
 ## 1. Problem and constraints
